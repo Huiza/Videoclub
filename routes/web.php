@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/peliculas', 'PeliculaController@index')->name('peliculas');
 Route::get('/peliculas/crear','PeliculaController@create')->name('crear_pelicula');
 Route::post('/peliculas/guardar','PeliculaController@store')->name('guardar_pelicula');
+Route::get('/peliculas/editar/{id}', 'PeliculaController@edit')->name('editar_pelicula');
+
+Route::put('/peliculas/actualizar/{id}', 'PeliculaController@update')->name('actualizar_pelicula');

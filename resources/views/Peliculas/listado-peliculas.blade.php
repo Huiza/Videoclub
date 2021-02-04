@@ -73,11 +73,7 @@
                                     <td>{{$pelicula->anio_estreno}}</td>
                                     <td>{{$pelicula->categoria->nombre_categoria}}</td>
                                     <td>
-                                        <a class="btn btn-default notika-btn-default" href="#"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
-                                    </td>
-                
-                                    <td>
-                                        <a class="btn btn-warning notika-btn-warning" href="#"><span class="glyphicon glyphicon-th-list"></span> Consultar</a>
+                                        <a class="btn btn-default notika-btn-default" href="{{route('editar_pelicula', $pelicula->id)}}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
                                     </td>
                                 </tr>
                                 @endforeach

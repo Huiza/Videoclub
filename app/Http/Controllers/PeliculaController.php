@@ -71,6 +71,10 @@ class PeliculaController extends Controller
     public function edit($id)
     {
         //
+        $pelicula = Pelicula::findOrFail($id);
+        $categorias      = Categoria::all();
+    
+        return view('Peliculas/edit-pelicula', compact('pelicula','categorias'));
     }
 
     /**
@@ -80,9 +84,15 @@ class PeliculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PeliculaRequest $request, $id)
     {
         //
+        $pelicula = Pelicula::findOrFail($id);
+        $pelicula->titulo = $request->titulo;
+        $pelicula->anio_estreno = $request->anio_estreno;
+        $pelicula->categoria_id = $request->categoria_id;
+        $pelicula->update();
+        return redirect()->route('peliculas');
     }
 
     /**
