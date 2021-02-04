@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/peliculas', 'PeliculaController@index')->name('peliculas');
+Route::get('/peliculas/crear','PeliculaController@create')->name('crear_pelicula');
+Route::post('/peliculas/guardar','PeliculaController@store')->name('guardar_pelicula');
