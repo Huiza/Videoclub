@@ -13,7 +13,7 @@ class PeliculaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,9 +25,9 @@ class PeliculaRequest extends FormRequest
     {
         return [
             //
-            'titulo' => 'required|max:150|regex:/[a-zA-ZñÑáéíóúÁÉÍÓÚ]/'
-            'anio_estreno' => 'required';
-            'categoria_id' => 'required';
+            'titulo' => 'required|max:150|regex:/[a-zA-ZñÑáéíóúÁÉÍÓÚ]/',
+            'anio_estreno' => 'required',
+            'categoria_id' => 'required',
 
 
         ];
@@ -36,9 +36,9 @@ class PeliculaRequest extends FormRequest
      public function messages()
     {
         return [
-            'carne.required' => 'El campo titulo es obligatorio.',
-            'carne.max' => 'La cantidad máxima de carácteres es 150.',
-            'anio_estreno.required' => 'Debe ingresar el año de estreno.'
+            'titulo.required' => 'El campo titulo es obligatorio.',
+            'titulo.max' => 'La cantidad máxima de carácteres es 150.',
+            'anio_estreno.required' => 'Debe ingresar el año de estreno.',
             'categoria_id.required' => 'Debe seleccionar una categoria.',
         ];
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pelicula;
 use App\Categoria;
+use App\Http\Requests\PeliculaRequest;
 use Illuminate\Http\Request;
 
 class PeliculaController extends Controller
@@ -43,9 +44,11 @@ class PeliculaController extends Controller
     {
         //
         $pelicula = new Pelicula();
-        $pelicula = $request->titulo;
-        $pelicula = $request->anio_estreno;
+        $pelicula->titulo = $request->titulo;
+        $pelicula->anio_estreno = $request->anio_estreno;
+        $pelicula->categoria_id = $request->categoria_id;
         $pelicula->save();
+        return redirect()->route('peliculas');
     }
 
     /**
