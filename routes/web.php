@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Rutas para la creación, edición de peliculas
 Route::get('/peliculas', 'PeliculaController@index')->name('peliculas');
 Route::get('/peliculas/crear','PeliculaController@create')->name('crear_pelicula');
 Route::post('/peliculas/guardar','PeliculaController@store')->name('guardar_pelicula');

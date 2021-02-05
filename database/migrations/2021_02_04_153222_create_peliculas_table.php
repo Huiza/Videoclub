@@ -17,6 +17,7 @@ class CreatePeliculasTable extends Migration
             $table->id();
             $table->string('titulo',150)->nullable();
             $table->integer('anio_estreno')->nullable();
+            $table->string('disponibilidad',25);
             $table->integer('categoria_id')->unsigned()->foreign()->references('id')->on('categoria')->onDelete('cascade');
             $table->timestamps();
         });

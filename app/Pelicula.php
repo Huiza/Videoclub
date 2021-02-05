@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pelicula extends Model
 {
     //Atributos de la clase
-    protected $fillable=['titulo','anio_estreno'];
+    protected $fillable=['titulo','anio_estreno','disponibilidad'];
 
     public function getRouteKeyName()
     {

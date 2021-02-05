@@ -42,13 +42,14 @@ class PeliculaController extends Controller
      */
     public function store(PeliculaRequest $request)
     {
-        //
+        //Creación de una nueva pelicula
         $pelicula = new Pelicula();
         $pelicula->titulo = $request->titulo;
         $pelicula->anio_estreno = $request->anio_estreno;
         $pelicula->categoria_id = $request->categoria_id;
-        $pelicula->save();
-        return redirect()->route('peliculas');
+        $pelicula->disponibilidad = "disponible";
+        $pelicula->save();//Guarda los datos de la película
+        return redirect()->route('peliculas');//Regresa a la vista del listado de peliculas
     }
 
     /**
@@ -70,11 +71,11 @@ class PeliculaController extends Controller
      */
     public function edit($id)
     {
-        //
-        $pelicula = Pelicula::findOrFail($id);
-        $categorias      = Categoria::all();
+        
+        $pelicula = Pelicula::findOrFail($id);//Se obtiene la pelicula con el id seleccionado
+        $categorias = Categoria::all();//Muestra el listado de las categorias
     
-        return view('Peliculas/edit-pelicula', compact('pelicula','categorias'));
+        return view('Peliculas/edit-pelicula', compact('pelicula','categorias'));// Regresa a la vista de Editar pelicula
     }
 
     /**
@@ -86,13 +87,14 @@ class PeliculaController extends Controller
      */
     public function update(PeliculaRequest $request, $id)
     {
-        //
+        //Se obtine la pelicula con el id que se desea actualizar
         $pelicula = Pelicula::findOrFail($id);
         $pelicula->titulo = $request->titulo;
         $pelicula->anio_estreno = $request->anio_estreno;
         $pelicula->categoria_id = $request->categoria_id;
-        $pelicula->update();
-        return redirect()->route('peliculas');
+        $pelicula->disponibilidad = $request->disponibilidad;
+        $pelicula->update();// Se actualizan los datos de la pelicula seleccionada
+        return redirect()->route('peliculas');// Regresa a la vista del listado de peliculas
     }
 
     /**
@@ -101,6 +103,17 @@ class PeliculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /*   public function buscar(BusquedaRequest $request)
+    {
+        $disponibilidad = $request->get('disponibilidad');
+        $inicio_formato = Fecha::fechaTexto($inicio);
+        $final_formato = Fecha::fechaTexto($final);
+
+        $estudiantes = Estudiante::whereBetween('created_at', [$inicio, $final])->get();
+        return view('Expedientes/expedientes_listado', compact('estudiantes', 'inicio', 'final', 'inicio_formato', 'final_formato'));
+    }*/
+
     public function destroy($id)
     {
         //

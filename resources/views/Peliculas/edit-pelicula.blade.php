@@ -79,6 +79,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <br><br>
+                                    <label for="disponibilidad" >Disponibilidad <small style="color:#16D195;" >*</small></label>
+                                    <div class="form-example-int mg-t-15">
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                            <div class="bootstrap-select fm-cmp-mg">
+                                                <input type="radio" name="disponibilidad" value="disponible">Disponible
+                                                <input type="radio" name="disponibilidad" value="No disponible">No disponible
+                                    
+                                            </div>
+                                        </div>
+                                    </div>
                                     <br><br><br>
                             <div class="form-example-int mg-t-15">
                                 <button class="btn btn-success notika-btn-success">Actualizar pelicula</button>

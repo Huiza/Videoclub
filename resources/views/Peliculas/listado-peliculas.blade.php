@@ -62,6 +62,7 @@
                                     <th>Título</th>
                                     <th>Año de estreno</th>
                                     <th>Categoría</th>
+                                    <th>Disponiblidad</th>
                                 </tr>
                             </thead>
                             
@@ -72,6 +73,7 @@
                                     <td>{{$pelicula->titulo}}</td>
                                     <td>{{$pelicula->anio_estreno}}</td>
                                     <td>{{$pelicula->categoria->nombre_categoria}}</td>
+                                    <td>{{$pelicula->disponibilidad}}</td>
                                     <td>
                                         <a class="btn btn-default notika-btn-default" href="{{route('editar_pelicula', $pelicula->id)}}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
                                     </td>
