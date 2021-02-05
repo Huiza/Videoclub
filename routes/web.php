@@ -24,6 +24,8 @@ Route::get('/peliculas/editar/{id}', 'PeliculaController@edit')->name('editar_pe
 
 Route::put('/peliculas/actualizar/{id}', 'PeliculaController@update')->name('actualizar_pelicula');
 
+Route::delete('peliculas/eliminar/{id}', 'PeliculaController@destroy')->name('eliminar_pelicula');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

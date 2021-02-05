@@ -105,19 +105,12 @@ class PeliculaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    /*   public function buscar(BusquedaRequest $request)
-    {
-        $disponibilidad = $request->get('disponibilidad');
-        $inicio_formato = Fecha::fechaTexto($inicio);
-        $final_formato = Fecha::fechaTexto($final);
-
-        $estudiantes = Estudiante::whereBetween('created_at', [$inicio, $final])->get();
-        return view('Expedientes/expedientes_listado', compact('estudiantes', 'inicio', 'final', 'inicio_formato', 'final_formato'));
-    }*/
-
     public function destroy($id)
     {
         //
+        $pelicula = Pelicula::findOrFail($id);
+        $película->delete();
+
+        return redirect()->route('peliculas');
     }
 }

@@ -23,10 +23,6 @@
                         </div>
 
                         <br><br>
-                        <div class="modal-footer">
-                            <button formtarget="_blank" data-toggle="tooltip" data-placement="left" title="Descargar reporte"class="btn btn-default"><i class="notika-icon notika-down-arrow">
-                            <i> Descargar PDF</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -63,6 +59,7 @@
                                     <th>Año de estreno</th>
                                     <th>Categoría</th>
                                     <th>Disponiblidad</th>
+
                                 </tr>
                             </thead>
                             
@@ -76,7 +73,13 @@
                                     <td>{{$pelicula->disponibilidad}}</td>
                                     <td>
                                         <a class="btn btn-default notika-btn-default" href="{{route('editar_pelicula', $pelicula->id)}}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                                        <form method="POST" id="formulario{{$pelicula->id}}" action="{{route('eliminar_pelicula', $pelicula->id)}}" >
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" onClick="confirmar({{$pelicula->id}})" class="btn btn-danger notika-btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+                                        </form>
                                     </td>
+                                    
                                 </tr>
                                 @endforeach
                             </tbody>

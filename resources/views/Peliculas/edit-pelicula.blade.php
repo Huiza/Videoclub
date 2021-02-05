@@ -93,7 +93,7 @@
                                     <br><br><br>
                             <div class="form-example-int mg-t-15">
                                 <button class="btn btn-success notika-btn-success">Actualizar pelicula</button>
-                                <a class="btn btn-danger notika-btn-danger" href="#">Cancelar</a>
+                                <a class="btn btn-danger notika-btn-danger" href="{{route('peliculas')}}">Cancelar</a>
                             </div>
                         </div>
                     </form>
