@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 //Rutas para la creación, edición de peliculas
@@ -23,3 +23,7 @@ Route::post('/peliculas/guardar','PeliculaController@store')->name('guardar_peli
 Route::get('/peliculas/editar/{id}', 'PeliculaController@edit')->name('editar_pelicula');
 
 Route::put('/peliculas/actualizar/{id}', 'PeliculaController@update')->name('actualizar_pelicula');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
