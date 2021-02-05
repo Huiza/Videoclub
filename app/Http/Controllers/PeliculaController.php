@@ -18,6 +18,7 @@ class PeliculaController extends Controller
     {
         //Muestra el listado de todas las peliculas disponibles
         $peliculas = Pelicula::all();
+        //Retorna la vista del listado de peliculas
         return view('Peliculas/listado-peliculas',compact('peliculas'));
 
     }
@@ -31,6 +32,7 @@ class PeliculaController extends Controller
     {
         //Muestra el listado de categorias disponibles
         $categorias =  Categoria::all();
+        //Retorna la vista de crear un película
         return view('Peliculas/create-pelicula',compact('categorias'));
     }
 
@@ -42,14 +44,14 @@ class PeliculaController extends Controller
      */
     public function store(PeliculaRequest $request)
     {
-        //Creación de una nueva pelicula
+        //Creación de una nueva pelicula con los datos ingresados desde la el formulario
         $pelicula = new Pelicula();
         $pelicula->titulo = $request->titulo;
         $pelicula->anio_estreno = $request->anio_estreno;
         $pelicula->categoria_id = $request->categoria_id;
-        $pelicula->disponibilidad = "disponible";
+        $pelicula->disponibilidad = "disponible";//Por defecto será disponible ya que la película es nueva.
         $pelicula->save();//Guarda los datos de la película
-        return redirect()->route('peliculas');//Regresa a la vista del listado de peliculas
+        return redirect()->route('peliculas');//Retorna a la vista del listado de peliculas
     }
 
     /**
@@ -75,7 +77,7 @@ class PeliculaController extends Controller
         $pelicula = Pelicula::findOrFail($id);//Se obtiene la pelicula con el id seleccionado
         $categorias = Categoria::all();//Muestra el listado de las categorias
     
-        return view('Peliculas/edit-pelicula', compact('pelicula','categorias'));// Regresa a la vista de Editar pelicula
+        return view('Peliculas/edit-pelicula', compact('pelicula','categorias'));// Retorna a la vista de Editar pelicula
     }
 
     /**

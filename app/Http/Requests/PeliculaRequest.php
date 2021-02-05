@@ -34,7 +34,7 @@ class PeliculaRequest extends FormRequest
 
         ];
     }
-    //Muestra los mensajes
+    //Muestra los mensajes correspondientes cuando no se ha ingresado los datos en el algún campo del formulario.
      public function messages()
     {
         return [
